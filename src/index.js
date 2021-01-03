@@ -2,6 +2,8 @@
 const loginForm = document.querySelector("#login-form")
 const loginFormUsername = document.querySelector('#username')
 const body = document.querySelector('body')
+const headerH1 = document.querySelector('h1')
+const main = document.querySelector('main')
 
 const logInComponent = new LogInComponent(loginForm)
 logInComponent.submitFormEvent()
@@ -12,7 +14,7 @@ logInComponent.submitFormEvent()
 //             userObjects.forEach(user => {
 //                 if (user.username === loginForm.username.value) {
 //                     body.innerHTML = ""
-//                 } 
+//                 } j
 //             })
 //         })
 // }

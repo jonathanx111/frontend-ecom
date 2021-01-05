@@ -30,7 +30,27 @@ class NewInstrumentFormComponent {
                     const li = document.createElement('li')
                     li.textContent = `${newInstrumentObj.year} ${newInstrumentObj.brand} ${newInstrumentObj.model} ${newInstrumentObj.type_of}`
                     instrumentUl.append(li)
-                })
+                    this.instrumentId = newInstrumentObj.id
+                    console.log(newInstrumentObj.id)
+                    console.log(this.instrumentId)
+                    fetch(`http://localhost:3000/api/v1/listings`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json"
+                        },
+                        body: JSON.stringify({
+                            buyer_id: 0,
+                            seller_id: this.form.dataset.userId,
+                            instrument_id: this.instrumentId,
+                            datetime_sold: null
+                        })
+                    })
+                        .then(resp => resp.json())
+                        .then(listingObj => {
+                            console.log(listingObj)
+                        })
+                }) 
         })
     }
 

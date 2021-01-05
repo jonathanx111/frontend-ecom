@@ -14,7 +14,7 @@ class RenderUserComponent {
     }
 
     displayUserInfo(userId) {
-        main.innerHTML = ""
+        main.innerHTML = ""  
         headerH1.textContent = `Welcome Back, ${this.username.charAt(0).toUpperCase() + this.username.slice(1)}!`
 
         fetch(`http://localhost:3000/api/v1/users/${userId}`)

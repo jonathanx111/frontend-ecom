@@ -100,7 +100,7 @@ class LogInComponent {
                     // 1) "Username does not exist, would you like to create a new user" 
                     // If no {resets login form, and retype username} => yes option
                     // If yes {Creates new user with username just typed} => step 2
-                    // 2) Render header "Welcome ${username}!"k
+                    // 2) Render header "Welcome ${username}!"
                 }
             })
     }

@@ -1,13 +1,13 @@
 Buy Route 
 DONE 1. Add Price attribute for instruments table and Listings table  
 
-2. A user can see all the instruments are being listed (sold attribute will be false). Accessed by a button/navbar that takes them to this page.
+2. A user can see all the instruments being listed. Accessed by a button/navbar that takes them to this page.
 
 3. A user can click on a instrument which takes them to instrument show page.
 
 4. The instrument show page will be the same show page that user can see when they see their own instruments.
 
-5.Listing Attributes before buy 
+DONE 5.Listing Attributes before buy 
     -buyer_id: null/undefined
     -seller_id: seller's id 
     -instrument_id: instrument's id 

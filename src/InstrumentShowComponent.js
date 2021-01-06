@@ -61,23 +61,23 @@ class InstrumentShowComponent {
             // .then(data => {})
             main.innerHTML = ""
             headerH1.textContent = `Welcome Back, User!`
-                // fetch(`http://localhost:3000/api/v1/users/${userId}`)
-                // .then(response => response.json())
-                // .then(user => {
-                //     const instrumentUl = document.createElement('ul')
-                //     instrumentUl.id = "instrument-ul"
-                //     console.log("inside then response")
-                    // user.instruments.forEach(inst => {
-                        // console.log(user.instruments)
-                        // const li = document.createElement('li')
-                        // li.textContent = `${inst.year} ${inst.brand} ${inst.model} ${inst.type_of}`
-                        // const instrumentShowComponent = new InstrumentShowComponent(inst)
-                        // this.createLi(instrumentUl)
+                fetch(`http://localhost:3000/api/v1/users/${userId}`)
+                .then(response => response.json())
+                .then(user => {
+                    const instrumentUl = document.createElement('ul')
+                    instrumentUl.id = "instrument-ul"
+                    console.log("inside then response")
+                    user.instruments.forEach(inst => {
+                        console.log(user.instruments)
+                        const li = document.createElement('li')
+                        li.textContent = `${inst.year} ${inst.brand} ${inst.model} ${inst.type_of}`
+                        const instrumentShowComponent = new InstrumentShowComponent(inst)
+                        this.createLi(instrumentUl)
 
-                        // instrumentUl.append(li)
-                    // })
+                        instrumentUl.append(li)
+                    })
                 
-                // })
+                })
             // main.innerHTML = ""
             // fetch(`http://localhost:3000/api/v1/users/${userId}`)
             //     .then(response => response.json())

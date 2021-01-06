@@ -164,12 +164,36 @@ function fetchAllListings() {
         })
 }
 
+function fetchOneUserAndInstruments(userId) {
+    fetch(`http://localhost:3000/api/v1/users/${userId}`)
+    .then(response => response.json())
+    .then(user => {
+        user.instruments.forEach(inst => {
+            console.log(inst)
+            main.innerHTML = ""
+            const instrumentShowComponent = new InstrumentShowComponent(inst)
+            instrumentShowComponent.createInstrumentLi()
+            
+            // const li = document.createElement('li')
+            // li.classList.add("instrument-li")
+            // li.textContent = `${inst.year} ${inst.brand} ${inst.model} ${inst.type_of}`
+            // const instrumentShowComponent = new InstrumentShowComponent(inst)
+            // instrumentShowComponent.createInstrumentLi()
+            // instrumentUl.append(li)
+        })
+        const instrumentDiv = document.createElement('div')
+        const instrumentDivTitle = document.createElement('h3')
+
+        instrumentDiv.id = "instrument-div"
+        instrumentDivTitle.textContent = "Currently Selling"
+
+        instrumentDiv.append(instrumentDivTitle, instrumentUl)
+        main.append(instrumentDiv)
+        
+        renderNewInstrumentForm(userId)
+    })  
+}
 
 /* INITIAL RENDER ------------------------------------------------------------------ */
 const logInComponent = new LogInComponent(loginForm)
 logInComponent.submitFormEvent()
-
-
-
-
-

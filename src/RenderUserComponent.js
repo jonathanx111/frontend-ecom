@@ -42,6 +42,7 @@ class RenderUserComponent {
                 main.append(instrumentDiv)
                 
                 renderNewInstrumentForm(newUserId)
+                
             }) /* end displayUserInfo .then response */
     
     } /* end displayUserInfo */

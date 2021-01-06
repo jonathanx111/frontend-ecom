@@ -4,44 +4,46 @@ class LogInComponent {
     }
 
     submitFormEvent() {
-        const handleFormEvent = event => {
+        this.form.addEventListener('submit', event => {
             event.preventDefault()
-            console.log("submit form")
-
             this.checkExistence()
-        }
-
-        // Event Listener
-        this.form.addEventListener('submit', handleFormEvent)
+        })
     }
 
     checkExistence() {
+        const username = this.form.username.value
+
         fetch("http://localhost:3000/api/v1/users")
             .then(response => response.json())
-            .then(userObjects => {
-                const userObjectsUsernameArray = userObjects.map(userObject => userObject.username)
-                const username = this.form.username.value
-                if (userObjectsUsernameArray.includes(username)) {
-                    const renderUserComponent = new RenderUserComponent(userObjects, this.form)
+            .then(allUserObjects => {
+                const usernameArray = allUserObjects.map(userObject => userObject.username)
+                // const username = this.form.username.value
+                if (usernameArray.includes(username)) {
+                    const renderUserComponent = new RenderUserComponent(allUserObjects, this.form)
                     const userId = renderUserComponent.findUserId()
                     renderUserComponent.displayUserInfo(userId)
                 } else {
                     console.log("no")
-                    const submitInput = document.getElementById("submit-button")
-                    submitInput.remove()
+                    const submitButton = document.getElementById("submit-button")
+                    submitButton.remove()
+
                     const noSignupButton = document.createElement('button')
                     noSignupButton.textContent = "No"
+                    const yesSignupButton = document.createElement('button')
+                    yesSignupButton.textContent = "Yes"
+                    const errorP = document.createElement('p')
+                    errorP.textContent = "Username does not exist - Would you like to signup with that username?" 
+
+                    errorP.append(yesSignupButton, noSignupButton)
+                    main.prepend(errorP)
+
                     noSignupButton.addEventListener('click', event => {
                         errorP.remove()
-                        loginForm.append(submitInput)
+                        loginForm.append(submitButton)
                         loginForm.reset()
                     })
 
-                    const errorP = document.createElement('p')
-                    const signupButton = document.createElement('button')
-                    signupButton.textContent = "Yes"
-
-                    signupButton.addEventListener('click', signupButtonEvent => {
+                    yesSignupButton.addEventListener('click', signupButtonEvent => {
                         signupButtonEvent.preventDefault()
                         fetch("http://localhost:3000/api/v1/users", {
                             method: 'POST',
@@ -60,16 +62,13 @@ class LogInComponent {
                             })
                     })
 
-                    errorP.textContent = "Username does not exist - Would you like to signup with that username?" 
-                    errorP.append(signupButton, noSignupButton)
+                } /* end else statement */
 
-                    main.prepend(errorP)
-                }
-            })
-    }
+            }) /* end .then response */
 
+    } /* end checkExistence */
 
-}
+} /* end LoginComponent */
 
 
 

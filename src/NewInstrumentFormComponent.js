@@ -28,11 +28,10 @@ class NewInstrumentFormComponent {
                 .then(newInstrumentObj => {
                     const instrumentUl = document.querySelector('#instrument-ul')
                     const li = document.createElement('li')
+                    li.classList.add("instrument-li")
                     li.textContent = `${newInstrumentObj.year} ${newInstrumentObj.brand} ${newInstrumentObj.model} ${newInstrumentObj.type_of}`
                     instrumentUl.append(li)
                     this.instrumentId = newInstrumentObj.id
-                    console.log(newInstrumentObj.id)
-                    console.log(this.instrumentId)
                     fetch(`http://localhost:3000/api/v1/listings`, {
                         method: "POST",
                         headers: {

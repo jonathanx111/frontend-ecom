@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./src/LogInComponent.js"></script>
+    <script src="./src/LogInComponent.js" defer></script>
     <script src="./src/index.js" defer></script>
-    <title>Ecommerce</title>
+    <script src="./src/InstrumentShowComponent.js"></script>
+    <script src="./src/NewInstrumentFormComponent.js"></script>
+    <script src="./src/RenderUserComponent.js"></script>
+    <title>Reverb-Lite</title>
 </head>
 <body>
     <header>
-        <h1>Login</h1>
+        <h1 class="heading">Welcome to Reverb-Lite!</h1>
     </header>
 
-    <nav>
-        <button id="listings-button">Listings</button>
+    <nav id="navigation-bar">
+        <ul class="navbar-ul">
+            <button id="listings-button">View Listings</button>
+        </ul>
     </nav>
+
+    <br>
+    <br>
 
     <main>
         <form id="login-form">
             <label for="username">Username</label>
             <input type="text" id="username" placeholder="Username" required>
-            <input type="submit" value="Submit">
+            <input id = "submit-button" type="submit" value="Submit">
         </form>
     </main>
 </body>

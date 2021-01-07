@@ -4,3 +4,36 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: rgba(241, 236, 236, 0.884);
+    /* font-family: 'Courier New', Courier, monospace; */
+}
+
+header {
+    text-align: center;
+    padding-top: 5px;
+} 
+
+nav {
+    text-align: center;
+    /* border: 1px dotted;
+    margin: 20px 200px;
+    border-radius: 5px; */
+}
+
+/* h3 {
+    margin: 10px;
+}
+
+ul {
+    margin: 5px;
+    display: block;
+}
+
+input {
+    display: block;
+} */
+
+/* form#new-instrument-form {
+    display: inline;
+} */

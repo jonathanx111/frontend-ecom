@@ -15,11 +15,7 @@ class RenderUserComponent {
     displayUserInfo(userId) {
         main.innerHTML = ""  
         headerH1.textContent = `Welcome Back, ${this.username.charAt(0).toUpperCase() + this.username.slice(1)}!`
-        const homeButton = document.createElement("button")
-        homeButton.textContent = "Seller Profile"
-        homeButton.id = ('user-home')
         homeButton.dataset.id = userId
-        navBarUl.append(homeButton)
         let newUserId
 
         fetch(`http://localhost:3000/api/v1/users/${userId}`)

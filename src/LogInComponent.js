@@ -6,6 +6,7 @@ class LogInComponent {
     submitFormEvent() {
         this.form.addEventListener('submit', event => {
             event.preventDefault()
+            
             this.checkExistence()
         })
     }

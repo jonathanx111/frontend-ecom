@@ -6,7 +6,7 @@ const loginForm = document.querySelector("#login-form")
 const formLabel = document.querySelector('#form-label')
 const loginFormUsername = document.querySelector('#username')
 const listingsButton = document.querySelector('#listings-button')
-// const homeButton = document.querySelector('#user-home')
+const homeButton = document.querySelector('#user-home')
 const navBar = document.querySelector("#navigation-bar")
 const navBarUl = document.querySelector(".navbar-ul")
 
@@ -22,8 +22,11 @@ const newInstrumentForm = document.createElement('form')
 
 navBar.addEventListener('click', evt => {
     if (evt.target.matches("#user-home")) {
+        if(evt.target.dataset.id) {
         console.log("home button has been clicked")
-        
+        } else {
+            console.log("error")
+        }
     } else if (evt.target.matches("#listings-button")) {
         main.innerHTML = ""
         headerH1.textContent = "Instrument Listings"

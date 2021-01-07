@@ -9,27 +9,32 @@
     <script src="./src/NewInstrumentFormComponent.js"></script>
     <script src="./src/RenderUserComponent.js"></script>
     <title>Reverb-Lite</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 </head>
-<body>
-    <header>
-        <h1 class="heading">Welcome to Reverb-Lite!</h1>
-    </header>
+<body class="hero">
+    <section class="hero-body">
+        <header>
+            <h1 class="title">Welcome to Reverb-Lite!</h1>
+        </header>
 
-    <nav id="navigation-bar">
-        <ul class="navbar-ul">
-            <button id="listings-button">View Listings</button>
-        </ul>
-    </nav>
+        <nav id="navigation-bar">
+            <ul class="navbar-ul">
+                <button id="listings-button" class="button is-primary">View Listings</button>
+                <button id="user-home" class="button is-primary">Seller Profile</button>
+            </ul>
+        </nav>
 
-    <br>
-    <br>
+        <br>
+        <br>
 
-    <main>
-        <form id="login-form">
-            <label for="username">Username</label>
-            <input type="text" id="username" placeholder="Username" required>
-            <input id = "submit-button" type="submit" value="Submit">
-        </form>
+        <main>
+            <form id="login-form">
+                <label for="username">Username</label>
+                <input type="text" id="username" required>
+                <input id = "submit-button" type="submit" value="Submit">
+            </form>
+    </section>
     </main>
 </body>
 </html>
